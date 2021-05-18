@@ -1,9 +1,7 @@
+import pool from '../database';
+
 export default class Test {
-  private message: string = 'message test';
-
-  constructor() {}
-
-  public getMessage() {
-    return this.message;
+  public async getMessage() {
+    return pool.query('select * from table_name ');
   }
 }

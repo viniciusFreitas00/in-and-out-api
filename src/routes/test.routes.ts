@@ -4,10 +4,12 @@ import Test from '../services/Test.services';
 
 const testRouter = Router();
 
-testRouter.get('/', (request, response) => {
-  const message = new Test();
+testRouter.get('/', async (request, response) => {
+  const test = new Test();
 
-  return response.json({'message': message.getMessage()});
+  const aux = await test.getMessage();
+
+  return response.json({ data: aux.rows });
 });
 
 export default testRouter;
